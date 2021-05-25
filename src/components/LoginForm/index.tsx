@@ -3,7 +3,7 @@ import {InputGroup} from '@blueprintjs/core';
 import s from './LoginForm.module.scss'
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {changeEmail, changePassword, loginUser} from './@slice';
-import {Button, TextField,Box} from "@material-ui/core";
+import {Button, TextField, Box} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 
 const LoginForm: React.FC = () => {
@@ -55,8 +55,10 @@ const LoginForm: React.FC = () => {
                 /></div>
 
                 <Button color="secondary" variant='contained'
-                    onClick={
-                        () => dispatch(loginUser({email, password}))}>Войти</Button>
+                        onClick={
+                            () => {
+                                localStorage.setItem("token", JSON.parse(dispatch(loginUser({email, password}))).token);
+                            }}>Войти</Button>
             </Box>
         </form>
 
