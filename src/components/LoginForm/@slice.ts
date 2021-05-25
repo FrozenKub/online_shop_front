@@ -35,8 +35,9 @@ export const loginUser = createAsyncThunk(
             method: 'POST',
         };
         const response = await fetchData('/api/login/', postOptions);
-        return await (response.json()) as Response;
-
+        let res = await (response.json()) as Response;
+        localStorage.setItem("token", res.message.token);
+        return res;
     })
 
 export const loginFormSlice = createSlice({

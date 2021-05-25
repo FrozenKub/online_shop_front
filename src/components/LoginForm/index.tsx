@@ -57,7 +57,7 @@ const LoginForm: React.FC = () => {
                 <Button color="secondary" variant='contained'
                         onClick={
                             () => {
-                                localStorage.setItem("token", JSON.parse(dispatch(loginUser({email, password}))).token);
+                                dispatch(loginUser({email, password}));
                             }}>Войти</Button>
             </Box>
         </form>
