@@ -32,7 +32,7 @@ const LoginForm: React.FC = () => {
     const classes = useStyles();
 
     if (status == "succeeded"){
-        return <Redirect to {Routes.LOGIN} />
+        return <Redirect to={Routes.LOGIN} />
     }
 
     return (

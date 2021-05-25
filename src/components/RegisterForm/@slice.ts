@@ -31,13 +31,13 @@ const initialState: RegisterFormState = {
 }
 
 export const registerUser = createAsyncThunk(
-    'login/auth',
+    'register/auth',
     async (data: Form, thunkAPI) => {
         const postOptions = {
             body: JSON.stringify({name: data.username, email: data.email, password: data.password}),
             method: 'POST',
         };
-        const response = await fetchData('/api/login/', postOptions);
+        const response = await fetchData('/api/register/', postOptions);
         return await (response.json()) as Response;
     })
 
