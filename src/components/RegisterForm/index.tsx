@@ -3,6 +3,8 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {changeEmail, changePassword, changeUsername ,registerUser} from './@slice';
 import {Button, TextField, Box} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import Routes from "../../pages/routes";
+import {Redirect} from "react-router-dom";
 
 const LoginForm: React.FC = () => {
     const email = useAppSelector(state => state.registerForm.email);
@@ -28,6 +30,10 @@ const LoginForm: React.FC = () => {
     );
 
     const classes = useStyles();
+
+    if (status == "succeeded"){
+        return <Redirect to {Routes.LOGIN} />
+    }
 
     return (
         <form className={classes.root} noValidate autoComplete="off"
