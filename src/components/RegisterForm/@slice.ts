@@ -64,6 +64,7 @@ export const registerFormSlice = createSlice({
             state.loading = 'succeeded';
             state.password = '';
             state.email = '';
+            localStorage.setItem('token', action.payload.message.token);
         });
     }
 })
